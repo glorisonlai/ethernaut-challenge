@@ -1,0 +1,1 @@
+cast send $CONTRACT_COPY_PROD "flip(address)(bool,bool,bool)" $CONTRACT_PROD -f $USER_PROD --rpc-url $URL_PROD --private-key $PRI_KEY_PROD

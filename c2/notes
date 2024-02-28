@@ -1,0 +1,3 @@
+cast call $CONTRACT_DEV "owner()" --rpc-url $URL_DEV -f $USER_DEV
+cast send $CONTRACT_PROD "Fal1out()" --rpc-url $URL_PROD -f $USER_PROD --private-key $PRI_KEY_PROD
+cast call $CONTRACT_PROD "owner()" --rpc-url $URL_PROD -f $USER_PROD

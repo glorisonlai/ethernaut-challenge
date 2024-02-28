@@ -1,0 +1,1 @@
+cast send $CONTRACT_PROD "transfer(address,uint)" $OTHER_DEV 100 -f $USER_PROD --rpc-url $URL_PROD --private-key $PRI_KEY_PROD
