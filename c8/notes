@@ -1,0 +1,2 @@
+cast rpc -r $URL_PROD eth_getStorageAt $CONTRACT_PROD "0x1" | tr -d \"
+
