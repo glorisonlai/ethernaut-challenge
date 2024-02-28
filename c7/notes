@@ -1,0 +1,1 @@
+forge create --rpc-url $URL_PROD --constructor-args $CONTRACT_PROD --private-key $PRI_KEY_PROD --value 1 ForceStuffer
