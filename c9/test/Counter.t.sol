@@ -2,23 +2,18 @@
 pragma solidity ^0.8.13;
 
 import "forge-std/Test.sol";
-import "../src/Counter.sol";
+import "../src/King.sol";
+import "@openzeppelin/contracts/utils/Strings.sol";
 
 contract CounterTest is Test {
-    Counter public counter;
+    King public king;
 
     function setUp() public {
-        counter = new Counter();
-        counter.setNumber(0);
+        king = new King();
     }
-
-    function testIncrement() public {
-        counter.increment();
-        assertEq(counter.number(), 1);
-    }
-
-    function testSetNumber(uint256 x) public {
-        counter.setNumber(x);
-        assertEq(counter.number(), x);
+    
+    function test() public {
+        address kingAddy = address(king);
+        
     }
 }
