@@ -2,23 +2,25 @@
 pragma solidity ^0.8.13;
 
 import "forge-std/Test.sol";
-import "../src/Counter.sol";
+import "../src/Elevator.sol";
 
 contract CounterTest is Test {
-    Counter public counter;
+    Elevator public elevator;
+    BuildingEx public building;
 
     function setUp() public {
-        counter = new Counter();
-        counter.setNumber(0);
+        elevator = new Elevator();
+        building = new BuildingEx();
     }
 
     function testIncrement() public {
-        counter.increment();
-        assertEq(counter.number(), 1);
+        console.log(building.isLastFloor(1));
+        console.log(building.isLastFloor(1));
     }
 
-    function testSetNumber(uint256 x) public {
-        counter.setNumber(x);
-        assertEq(counter.number(), x);
+    function testBlah() public {
+        building.blah(address(elevator));
+        console.log(building.top());
+        console.log(elevator.top());
     }
 }
