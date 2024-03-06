@@ -2,23 +2,20 @@
 pragma solidity ^0.8.13;
 
 import "forge-std/Test.sol";
-import "../src/Counter.sol";
+import "../src/Privacy.sol";
 
 contract CounterTest is Test {
-    Counter public counter;
+    Privacy public priv;
 
     function setUp() public {
-        counter = new Counter();
-        counter.setNumber(0);
+        priv = new Privacy([
+            bytes32(0x63616e6469646174653100000000000000000000000000000000000000000000),0x6332000000000000000000000000000000000000000000000000000000000000,0x6333000000000000000000000000000000000000000000000000000000000000
+        ]);
     }
 
     function testIncrement() public {
-        counter.increment();
-        assertEq(counter.number(), 1);
+        bytes16 thing = priv.blah();
+        bytes16 thing2 = 0xfcfc10e99dd70fdffed8f80f12eae104;
     }
 
-    function testSetNumber(uint256 x) public {
-        counter.setNumber(x);
-        assertEq(counter.number(), x);
-    }
 }

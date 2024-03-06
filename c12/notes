@@ -1,0 +1,2 @@
+cast rpc -r $URL_PROD eth_getStorageAt $CONTRACT_PROD "0x5" "latest" | toclip
+cast send -f $USER_PROD --rpc-url $URL_PROD --private-key $PRI_KEY_PROD $CONTRACT_PROD "unlock(bytes16)" (fromclip)
