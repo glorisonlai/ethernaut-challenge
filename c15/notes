@@ -1,0 +1,3 @@
+cast call -f $USER_PROD --rpc-url $URL_PROD --private-key $PRI_KEY_PROD  $CONTRACT_PROD "balanceOf(address)" $USER_PROD
+cast send -f $USER_PROD --rpc-url $URL_PROD --private-key $PRI_KEY_PROD $CONTRACT_PROD "approve(address,uint256)" $USER_PROD "1000000000000000000000000"
+cast send -f $USER_PROD --rpc-url $URL_PROD --private-key $PRI_KEY_PROD $CONTRACT_PROD "transferFrom(address,address,uint256)" $USER_PROD $CONTRACT_PROD "1000000000000000000000000"

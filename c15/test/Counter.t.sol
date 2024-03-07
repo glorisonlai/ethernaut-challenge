@@ -2,23 +2,22 @@
 pragma solidity ^0.8.13;
 
 import "forge-std/Test.sol";
-import "../src/Counter.sol";
+import "../src/NaughtCoin.sol";
 
 contract CounterTest is Test {
-    Counter public counter;
+    NaughtCoin public coin;
+    Attack public attack;
 
     function setUp() public {
-        counter = new Counter();
-        counter.setNumber(0);
+        coin = new NaughtCoin(address(this));
+        attack = new Attack();
     }
 
     function testIncrement() public {
-        counter.increment();
-        assertEq(counter.number(), 1);
-    }
-
-    function testSetNumber(uint256 x) public {
-        counter.setNumber(x);
-        assertEq(counter.number(), x);
+        console.log(coin.balanceOf(address(this)));
+        coin.approve(address(this), 1);
+        coin.transferFrom(address(this), address(attack), 1);
+        // attack.thing(address(coin), address(this), 1);
+        console.log(coin.balanceOf(address(this)));
     }
 }
