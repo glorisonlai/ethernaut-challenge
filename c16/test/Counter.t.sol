@@ -12,13 +12,18 @@ contract CounterTest is Test {
         counter.setNumber(0);
     }
 
-    function testIncrement() public {
-        counter.increment();
-        assertEq(counter.number(), 1);
-    }
+    function bytesToUint(bytes memory b) internal override pure returns (uint256){
+        uint256 number;
+        for(uint i=0;i<b.length;i++){
+            number = number + uint(uint8(b[i]))*(2**(8*(b.length-(i+1))));
+        }
+    return number;
+}
 
-    function testSetNumber(uint256 x) public {
-        counter.setNumber(x);
-        assertEq(counter.number(), x);
+
+    function testIncrement() public {
+        address addy = 0xEf24aBd50999a6699F84aEf70c1B7046B010E28a;
+        uint thing = bytesToUint(abi.encodePacked(addy));
+        console.log(thing);
     }
 }
