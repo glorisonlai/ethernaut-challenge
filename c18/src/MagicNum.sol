@@ -29,3 +29,9 @@ contract Solver {
     return 42;
   }
 }
+
+contract Solver2 {
+  fallback(bytes calldata) external returns (bytes memory) {
+    return 0x00000000000000;
+  }
+}

@@ -1,0 +1,6 @@
+push10 602A60005260206000F3
+push1 00
+mstore
+push1 0a
+push1 16
+return
