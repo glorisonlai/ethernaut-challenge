@@ -40,3 +40,6 @@
 [submodule "c17/lib/forge-std"]
 	path = c17/lib/forge-std
 	url = https://github.com/foundry-rs/forge-std
+[submodule "c18/lib/forge-std"]
+	path = c18/lib/forge-std
+	url = https://github.com/foundry-rs/forge-std
