@@ -2,23 +2,19 @@
 pragma solidity ^0.8.13;
 
 import "forge-std/Test.sol";
-import "../src/Counter.sol";
+import "../src/Switch.sol";
 
 contract CounterTest is Test {
-    Counter public counter;
+    Switch public switchy;
 
     function setUp() public {
-        counter = new Counter();
-        counter.setNumber(0);
+        switchy = new Switch();
     }
 
     function testIncrement() public {
-        counter.increment();
-        assertEq(counter.number(), 1);
-    }
-
-    function testSetNumber(uint256 x) public {
-        counter.setNumber(x);
-        assertEq(counter.number(), x);
+        console.logBytes4(bytes4(keccak256("turnSwitchOff()")));
+        console.logBytes4(bytes4(keccak256("turnSwitchOn()")));
+        switchy.flipSwitch(abi.encodeWithSignature("turnSwitchOff()"));
+        console.log(switchy.switchOn());
     }
 }
